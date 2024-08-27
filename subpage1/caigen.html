@@ -212,6 +212,7 @@
 
 
 <button class="back-to-top" onclick="backToTop()">返回顶部</button>
+<a href="index.html" class="back-to-home">返回莱珢行会主页</a>
 
 <script>
     // 返回顶部功能
@@ -220,17 +221,54 @@
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
-    // 监听滚动事件，控制返回顶部按钮的显示和隐藏
-    window.onscroll = function() {scrollFunction()};
+    // 监听滚动事件，控制按钮的显示和隐藏
+    window.onscroll = function() {
+        scrollFunction();
+    };
 
     function scrollFunction() {
+        const backToTopButton = document.querySelector('.back-to-top');
+        const backToHomeButton = document.querySelector('.back-to-home');
+
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.querySelector('.back-to-top').style.display = "block";
+            backToTopButton.style.display = "block";
+            backToHomeButton.style.display = "block";
         } else {
-            document.querySelector('.back-to-top').style.display = "none";
+            backToTopButton.style.display = "none";
+            backToHomeButton.style.display = "none";
         }
     }
+
+    // 初始状态隐藏按钮
+    scrollFunction();
 </script>
+
+<style>
+    /* 设置固定定位的按钮 */
+    .back-to-top, .back-to-home {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: #ccc;
+        color: #000;
+        padding: 10px 15px;
+        margin: 5px 0;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .back-to-home {
+        right: 20px;
+        bottom: 60px; /* 调整“返回主页”的位置 */
+    }
+
+    .back-to-top:hover, .back-to-home:hover {
+        background-color: #999; /* 鼠标悬停时的背景颜色 */
+    }
+</style>
 
 </body>
 </html>
