@@ -84,6 +84,8 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;  /* 让头像在整个区域内居中 */
+            display: block;  /* 避免 flex 影响 */
         }
         .centered-container {
             background-color: #fff; /* 银色容器背景 */
@@ -112,10 +114,14 @@
         .image2 {
             width: 150px; /* 设置图片2的宽度 */
             height: 150px; /* 自动调整高度以保持比例 */
-	    display: block;
-	    margin: 0 auto;
-	    text-align: center; /* 确保图片不会受 text-align 影响 */
-            float: none !important; /* 取消任何 float 影响 */
+    	    display: block !important;  /* 让图片独占一行 */
+    	    margin: 0 auto !important;  /* 强制居中 */
+    	    float: none !important;  /* 取消任何 float 影响 */
+    	    text-align: center !important;  /* 确保不会受 text-align 影响 */
+    	    max-width: 100%;  /* 防止图片超出容器 */
+        }
+        #staff {
+            text-align: center;  /* 确保所有内容居中 */
         }
     </style>
 </head>
